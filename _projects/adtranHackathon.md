@@ -5,7 +5,7 @@ date: 2025-02-10
 collection: projects
 layout: single
 header:
-  image: /assets/images/hackathon-game/player.jpg
+  image: /assets/images/hackathon-game/gameplay.jpg
   teaser: /assets/images/hackathon-game/enemy.jpg
 toc: true
 toc_label: "Table of Contents"
@@ -19,7 +19,7 @@ gallery:
     image_path: /assets/images/hackathon-game/gameplay.jpg
     alt: "Gameplay Screenshots"
   - url: /assets/images/hackathon-game/player.jpg
-    image_path: /assets/images/hackathon-game/screenshot2.jpg
+    image_path: /assets/images/hackathon-game/player.jpg
     alt: "Player Model"
   - url: /assets/images/hackathon-game/enemy.jpg
     image_path: /assets/images/hackathon-game/enemy.jpg
@@ -46,7 +46,7 @@ Check out one of our gameplay demos here:
 <embed src="/assets/documents/Hackathon.pptx.pdf" type="application/pdf" height="500"/>
 
 # Play the Game
-You can try the game yourself by installing the zip file here! => [Itch.io](https://zanenab.itch.io/hackathon-2023)
+You can try the game by installing the zip file here! => [Itch.io](https://zanenab.itch.io/hackathon-2023)
 Password: hackathon23
 
 # Development Process
