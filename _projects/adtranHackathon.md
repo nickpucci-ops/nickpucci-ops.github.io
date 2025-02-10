@@ -47,7 +47,7 @@ Check out one of our gameplay demos here:
 
 # Play the Game
 You can try the game by installing the zip file here! => [Itch.io](https://zanenab.itch.io/hackathon-2023)
-Password: hackathon23
+**Password: hackathon23**
 
 # Development Process
 ## Idea & Planning
