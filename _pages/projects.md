@@ -1,1 +1,10 @@
-This will be where I can store some of my projects posts
+---
+title: "Projects"
+layout: collection
+permalink: /projects/
+collection: projects
+entries_layout: grid
+classes: wide
+---
+
+Collection of my projects over the years
