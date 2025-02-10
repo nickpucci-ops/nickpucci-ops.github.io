@@ -58,32 +58,29 @@ plugins:
 author:
   name   : "Nick Pucci"
   avatar : "/assets/images/gitwebpfp.jpg"
-  bio    : "Passionate learner wanting to make a difference through engineering"
+  bio    : "Senior Computer Science student @ University of Alabama"
   links:
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
+    - label: "LinkedIn"
+      icon: "fas fa-fw fa-linkedin-square"
+      url: "https://www.linkedin.com/in/nick-pucci-319a75251/"
+    - label: "YouTube"
+      icon: "fab fa-fw fa-youtube-play"
+      url: "https://youtube.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/nickpucci-ops"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
 
 footer:
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
+    - label: "LinkedIn"
+      icon: "fas fa-fw fa-linkedin-square"
+      url: "https://www.linkedin.com/in/nick-pucci-319a75251/"
+    - label: "YouTube"
+      icon: "fab fa-fw fa-youtube-play"
+      url: "https://youtube.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+      url: "https://github.com/nickpucci-ops"
 
 defaults:
   # _posts
