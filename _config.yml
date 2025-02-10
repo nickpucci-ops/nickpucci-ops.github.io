@@ -61,10 +61,10 @@ author:
   bio    : "Senior Computer Science student @ University of Alabama"
   links:
     - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin-square"
+      icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/nick-pucci-319a75251/"
     - label: "YouTube"
-      icon: "fab fa-fw fa-youtube-play"
+      icon: "fab fa-fw fa-youtube"
       url: "https://youtube.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
