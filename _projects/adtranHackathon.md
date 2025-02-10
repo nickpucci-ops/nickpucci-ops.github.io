@@ -2,6 +2,8 @@
 title: "Hackathon Game"
 excerpt: "A Unity-based game developed in 48 hours, winning 1st place in the company-wide hackathon."
 date: 2025-02-10
+collection: projects
+layout: single
 header:
   image: /assets/images/hackathon-game/player.jpg
   teaser: /assets/images/hackathon-game/enemy.jpg
