@@ -89,10 +89,10 @@ footer:
       url: "https://github.com/nickpucci-ops"
     - label: "Coding channel"
       icon: "fab fa-fw fa-youtube"
-      url: "https://www.youtube.com/channel/UCoQxVgRjOsAqbUAX2ddwRwQ"
+      url: "https://www.youtube.com/@pucci-ops"
     - label: "Piano channel"
       icon: "fab fa-fw fa-youtube"
-      url: "https://youtube.com/"
+      url: "https://youtube.com/@nickpucci5586"
 defaults:
   # _posts
   - scope:
