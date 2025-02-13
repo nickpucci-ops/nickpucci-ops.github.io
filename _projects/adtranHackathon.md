@@ -35,7 +35,7 @@ This game was developed as part of the Adtran Fall 2023 Hackathon, where we had 
 - **Variety of enemies and a multi-stage boss fight**
 - **Physics-based mechanics**
 
-# Screenshots
+# Gallery
 {% include gallery class = "full" %} 
 
 # Demo Video
@@ -54,7 +54,7 @@ You can try the game by installing the zip file here! => [Itch.io](https://zanen
 Our team brainstormed ideas and quickly settled on a concept that could be fun yet achievable within the time limit.
 
 ## Implementation
-The core mechanics were built using **Unity & C#**, with assets created in **jsfxr and Asesprite**. We used GitHub for version control and worked in sprints to stay on track.
+The core mechanics were built using **Unity & C#**, with assets created in **jsfxr & Asesprite**. We used GitHub for version control and worked in sprints to stay on track.
 
 ## Challenges & Solutions
 One of the biggest challenges was implementing smooth physics-based movement. We overcame this by fine-tuning the Rigidbody parameters in Unity and leveraging Unity’s physics engine.
