@@ -21,7 +21,7 @@ gallery:
 ---
 
 # Introduction
-AI Flashcard Generator is a Python-based application that automatically generates concise, AI-powered definitions for any topic. Built using Llama-3-8B-Instruct and the GPT4All framework, this tool quickly creates flashcards with a simple Tkinter-based graphical user interface.
+AI Flashcard Generator is a Python-based application that automatically generates concise, AI-powered definitions for any topic. This tool is built using Llama-3-8B-Instruct and the GPT4All framework with a simple Tkinter-based graphical user interface.
 
 # Features
 - **Concise AI-generated definitions of any topic**
