@@ -43,7 +43,7 @@ The core mechanics were built using Python and utilizing GPT4All's toolkit. GPT4
 
 ## Challenges & Solutions
 When I first started this project, my understanding of prompt engineering was limited, which led to inconsistent and unpredictable outputs. The model would sometimes format responses strangely or even generate conversations with itself.  
-[flashcard1.png](/assets/images/flashcard-gen/flashcard1.png)
+![flashcard1.png](/assets/images/flashcard-gen/flashcard1.png)
 
 After experimenting with different approaches and realizing my initial method wasn’t working, I researched how others structured system prompts for LLMs. That’s when I came across Meta’s Llama 3 documentation, which provided insights into its model card and instruction syntax. Applying these best practices drastically improved output consistency. The model then could generate clean and concise definitions as intended.
 
