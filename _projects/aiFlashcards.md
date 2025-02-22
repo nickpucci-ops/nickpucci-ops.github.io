@@ -13,9 +13,21 @@ sidebar:
   - title: "Tools Used"
     text: "Python, GPT4All, Llama 3, Tkinter"
 gallery:
+  - url: /assets/images//flashcard-gen/flashcard.png
+    image_path: /assets/images/flashcard-gen/flashcard.png
+    alt: "1"
+  - url: /assets/images//flashcard-gen/flashcard1.png
+    image_path: /assets/images/flashcard-gen/flashcard1.png
+    alt: "2"
+  - url: /assets/images//flashcard-gen/flashcard2.png
+    image_path: /assets/images/flashcard-gen/flashcard2.png
+    alt: "3"
+  - url: /assets/images//flashcard-gen/flashcard3.png
+    image_path: /assets/images/flashcard-gen/flashcard3.png
+    alt: "4"
   - url: /assets/images//flashcard-gen/flashcard4.png
     image_path: /assets/images/flashcard-gen/flashcard4.png
-    alt: "Tkinter display"
+    alt: "Tkinter display" 
 ---
 
 # Introduction
