@@ -5,19 +5,17 @@ date: 2025-02-21
 collection: projects
 layout: single
 header:
-  image: /assets/images/
-  teaser: /assets/images/
+  image: /assets/images/flashcard-gen/flashcard4.png
+  teaser: /assets/images/flashcard-gen/flashcard4.png
 toc: true
 toc_label: "Table of Contents"
 sidebar:
-  - title: "Role"
-    text: "Product Owner"
   - title: "Tools Used"
     text: "Python, GPT4All, Llama 3, Tkinter"
 gallery:
-  - url: /assets/images/
-    image_path: /assets/images/
-    alt: ""
+  - url: /assets/images/flashcard4.png
+    image_path: /assets/images/flashcard4.png
+    alt: "Tkinter display"
 ---
 
 # Introduction
@@ -44,7 +42,8 @@ The goal was to create an AI-powered study tool that generates flashcards on dem
 The core mechanics were built using Python and utilizing GPT4All's toolkit. GPT4All offers free LLM models for download, which is a perfect alternative to buying an API key from an online chatbot. I chose Llama 3 8B Instruct because it had fairly lightweight hardware requirements compared to the others. Meta also provides online documentation about Llama 3, as they are instruction-tuned models optimized for dialogue use cases and outperform many of the available open-source chat models on common industry benchmarks.
 
 ## Challenges & Solutions
-When I first started this project, my understanding of prompt engineering was limited, which led to inconsistent and unpredictable outputs. The model would sometimes format responses strangely or even generate conversations with itself.
+When I first started this project, my understanding of prompt engineering was limited, which led to inconsistent and unpredictable outputs. The model would sometimes format responses strangely or even generate conversations with itself.  
+[image3](/assets/images/flashcard-gen/flashcard2.png)
 
 After experimenting with different approaches and realizing my initial method wasn’t working, I researched how others structured system prompts for LLMs. That’s when I came across Meta’s Llama 3 documentation, which provided insights into its model card and instruction syntax. Applying these best practices drastically improved output consistency. The model then could generate clean and concise definitions as intended.
 
