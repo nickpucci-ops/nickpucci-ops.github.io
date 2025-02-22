@@ -6,7 +6,7 @@ collection: projects
 layout: single
 header:
   image: /assets/images/flashcard-gen/flashcard4.png
-  teaser: /assets/images/flashcard-gen/flashcard4.png
+  teaser: /assets/images/flashcard-gen/meta-llama3.png
 toc: true
 toc_label: "Table of Contents"
 sidebar:
