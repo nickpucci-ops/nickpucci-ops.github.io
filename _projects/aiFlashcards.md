@@ -13,8 +13,8 @@ sidebar:
   - title: "Tools Used"
     text: "Python, GPT4All, Llama 3, Tkinter"
 gallery:
-  - url: /assets/images/flashcard4.png
-    image_path: /assets/images/flashcard4.png
+  - url: /assets/images//flashcard-gen/flashcard4.png
+    image_path: /assets/images/flashcard-gen/flashcard4.png
     alt: "Tkinter display"
 ---
 
@@ -43,7 +43,7 @@ The core mechanics were built using Python and utilizing GPT4All's toolkit. GPT4
 
 ## Challenges & Solutions
 When I first started this project, my understanding of prompt engineering was limited, which led to inconsistent and unpredictable outputs. The model would sometimes format responses strangely or even generate conversations with itself.  
-[image3](/assets/images/flashcard-gen/flashcard2.png)
+[flashcard1.png](/assets/images/flashcard-gen/flashcard1.png)
 
 After experimenting with different approaches and realizing my initial method wasn’t working, I researched how others structured system prompts for LLMs. That’s when I came across Meta’s Llama 3 documentation, which provided insights into its model card and instruction syntax. Applying these best practices drastically improved output consistency. The model then could generate clean and concise definitions as intended.
 
