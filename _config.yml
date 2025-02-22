@@ -72,12 +72,12 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/nickpucci-ops"
-    - label: "Coding channel"
-      icon: "fab fa-fw fa-youtube"
-      url: "https://www.youtube.com/@pucci-ops"
-    - label: "Piano channel"
-      icon: "fab fa-fw fa-youtube"
-      url: "https://youtube.com/@nickpucci5586"
+        # - label: "Coding channel"
+        #   icon: "fab fa-fw fa-youtube"
+        #   url: "https://www.youtube.com/@pucci-ops"
+        # - label: "Piano channel"
+        #   icon: "fab fa-fw fa-youtube"
+        #   url: "https://youtube.com/@nickpucci5586"
 
 footer:
   links:
@@ -87,12 +87,12 @@ footer:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/nickpucci-ops"
-    - label: "Coding channel"
-      icon: "fab fa-fw fa-youtube"
-      url: "https://www.youtube.com/@pucci-ops"
-    - label: "Piano channel"
-      icon: "fab fa-fw fa-youtube"
-      url: "https://youtube.com/@nickpucci5586"
+        #  - label: "Coding channel"
+        #    icon: "fab fa-fw fa-youtube"
+        #    url: "https://www.youtube.com/@pucci-ops"
+        #  - label: "Piano channel"
+        #    icon: "fab fa-fw fa-youtube"
+        #    url: "https://youtube.com/@nickpucci5586"
 defaults:
   # _posts
   - scope:
