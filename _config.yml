@@ -13,13 +13,14 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Nick Pucci Portfolio Website
-email:
+title: Nick Pucci
+title_separator: "-"
+subtitle: Computer Science student at the University of Alabama
+email: nrpucci@crimson.ua.edu
 description: >- # this means to ignore newlines until "baseurl:"
-  Computer Science Major at the University of Alabama
-twitter_username: username
+  A website to showcase my experience.
 github_username: nickpucci-ops
-minimal_mistakes_skin: sunrise
+minimal_mistakes_skin: neon
 search: true
 
 # Build settings
