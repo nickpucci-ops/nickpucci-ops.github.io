@@ -11,7 +11,7 @@ feature_row:
   - image_path: /assets/images/home/raspberrypi1.jpg
     alt: "Projects"
     title: "Projects"
-    excerpt: "A portfolio of projects I have worked on. Includes machine learning, LLMs, and Unity games."
+    excerpt: "A portfolio of projects I've worked on. Includes Machine Learning, LLMs, and Unity games."
     url: "/projects/"
     btn_class: "btn--primary"
     btn_label: "Dive into my projects"
