@@ -4,7 +4,7 @@ permalink: /
 hidden: false
 header:
   overlay_color: "#0f0f0f"
-  overlay_image: /assets/images/home/ttown7.jpg
+  overlay_image: /assets/images/home/ttown8.jpg
 excerpt: >
   Software Development Engineer 
 feature_row:
