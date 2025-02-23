@@ -48,7 +48,7 @@ To run this, you will need to have GPT4All, Tkinter, and the Llama-3-8B-Instruct
 
 # Development Process
 ## Idea & Planning
-The goal was to create an AI-powered study tool that generates flashcards on demand, mainly for practice and offline functionality is pretty cool. I wanted to explore local LLMs and experiment with prompt engineering while also improving my knowledge of GUI development with Tkinter. 
+The goal was to create an AI-powered study tool that generates flashcards on demand, mainly for self-practice, and also offline functionality is pretty cool. I wanted to explore local LLMs and experiment with prompt engineering while also improving my knowledge of GUI development with Tkinter. 
 
 ## Implementation
 The core mechanics were built using Python and utilizing GPT4All's toolkit. GPT4All offers free LLM models for download, which is a perfect alternative to buying an API key from an online chatbot. I chose Llama 3 8B Instruct because it had fairly lightweight hardware requirements compared to the others. Meta also provides online documentation about Llama 3, as they are instruction-tuned models optimized for dialogue use cases and outperform many of the available open-source chat models on common industry benchmarks.
