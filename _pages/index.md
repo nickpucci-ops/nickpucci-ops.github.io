@@ -8,7 +8,7 @@ header:
 excerpt: >
   Software Development Engineer 
 feature_row:
-  - image_path: /assets/images/home/raspberrypi.jpg
+  - image_path: /assets/images/home/raspberrypi1.jpg
     alt: "Projects"
     title: "Projects"
     excerpt: "A portfolio of projects I have worked on. These include projects like machine learning, LLMs, and Unity games."
