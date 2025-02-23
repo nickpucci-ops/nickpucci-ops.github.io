@@ -4,7 +4,7 @@ permalink: /
 hidden: false
 header:
   overlay_color: "#0f0f0f"
-  overlay_image: /assets/images/home/raspberrypi.jpg
+  overlay_image: /assets/images/home/dennychimes.jpg
 excerpt: >
   Software Development Engineer 
 feature_row:
@@ -18,14 +18,14 @@ feature_row:
   - image_path: /assets/images/home/adtran2.jpg
     alt: "resume"
     title: "Resume"
-    excerpt: "A place where I dive deeper into what I'm learning and any updates on my projects."
+    excerpt: "A place where I keep my most up-to-date resume attached. Find out about my professional experience and feel free to contact me at the bottom of the page."
     url: "/resume/"
     btn_class: "btn--primary"
     btn_label: "Review my resume"
   - image_path: /assets/images/home/adtran1.jpg
     alt: "Me"
     title: "About Me"
-    excerpt: "Learn more details about who I am; my hobbies, education, and background. Also where you can gather my contact information."
+    excerpt: "Learn more personal details about who I am; my hobbies, education, and background."
     url: "/about/"
     btn_class: "btn--primary"
     btn_label: "My Life"      
