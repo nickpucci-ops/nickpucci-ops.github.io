@@ -15,19 +15,19 @@ sidebar:
 gallery:
   - url: /assets/images/slulml/ML1.jpg
     image_path: /assets/images/slulml/ML1.jpg
-    alt: "Screenshots"
+    alt: "Screenshot1"
   - url: /assets/images/slulml/ML2.jpg
     image_path: /assets/images/slulml/ML2.jpg
-    alt: "Screenshots"
+    alt: "Screenshot2"
   - url: /assets/images/slulml/ML3.jpg
     image_path: /assets/images/slulml/ML3.jpg
-    alt: "Screenshots"
-  - url: /assets/images/slulml/ML4.jpg
-    image_path: /assets/images/slulml/ML4.jpg
-    alt: "Screenshots"
+    alt: "Screenshot3"
   - url: /assets/images/slulml/ML5.jpg
     image_path: /assets/images/slulml/ML5.jpg
-    alt: "Screenshots"
+    alt: "Screenshot4"
+  - url: /assets/images/slulml/ML8.jpg
+    image_path: /assets/images/slulml/ML8.jpg
+    alt: "Screenshot5"
 ---
 
 # Introduction
@@ -73,6 +73,7 @@ To transform the dataset for polynomial regression, I constructed a feature matr
 - \(x\), \(y\) (linear terms)
 - \(x^2\), \(xy\), \(y^2\) (quadratic terms)
 
+#Gallery
 {% include gallery class = "full" %}
 
 ## Normalization
