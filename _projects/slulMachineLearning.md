@@ -73,7 +73,7 @@ To transform the dataset for polynomial regression, I constructed a feature matr
 - \(x\), \(y\) (linear terms)
 - \(x^2\), \(xy\), \(y^2\) (quadratic terms)
 
-# Gallery
+## Gallery
 {% include gallery class = "full" %}
 
 ## Normalization
