@@ -16,16 +16,16 @@ gallery:
   - url: /assets/images/slulml/ML1.jpg
     image_path: /assets/images/slulml/ML1.jpg
     alt: "Screenshots"
-    - url: /assets/images/slulml/ML2.jpg
+  - url: /assets/images/slulml/ML2.jpg
     image_path: /assets/images/slulml/ML2.jpg
     alt: "Screenshots"
-- url: /assets/images/slulml/ML3.jpg
+  - url: /assets/images/slulml/ML3.jpg
     image_path: /assets/images/slulml/ML3.jpg
     alt: "Screenshots"
   - url: /assets/images/slulml/ML4.jpg
     image_path: /assets/images/slulml/ML4.jpg
     alt: "Screenshots"
-    - url: /assets/images/slulml/ML5.jpg
+  - url: /assets/images/slulml/ML5.jpg
     image_path: /assets/images/slulml/ML5.jpg
     alt: "Screenshots"
 ---
