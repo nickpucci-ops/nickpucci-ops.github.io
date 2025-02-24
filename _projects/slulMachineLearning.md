@@ -5,27 +5,27 @@ date: 2025-02-23
 collection: projects
 layout: single
 header:
-  image: /assets/images/slulml/
-  teaser: /assets/images/slulml/
+  image: /assets/images/slulml/ML12.jpg
+  teaser: /assets/images/slulml/ML12.jpg
 toc: true
 toc_label: "Table of Contents"
 sidebar:
   - title: "Tools Used"
     text: "Python, scikit-learn, matplotlib, numpy"
 gallery:
-  - url: /assets/images/slulml/
-    image_path: /assets/images/slulml/
+  - url: /assets/images/slulml/ML1.jpg
+    image_path: /assets/images/slulml/ML1.jpg
     alt: "Screenshots"
 ---
 # Supervised Learning Project: Polynomial Regression with Ridge Regularization
 
-## Introduction
+# Introduction
 
 This project explores supervised learning using polynomial regression with ridge regularization to predict a target variable \(z\) based on two input attributes \(x\) and \(y\). The dataset consists of 50 noisy samples, and the objective is to develop a model that captures nonlinear relationships while maintaining generalizability. This report details my thought process in model selection, feature engineering, regularization, and evaluation. This was a neat assignment for my CS465 AI class.
 
 ---
 
-## How to Run the Project
+# How to Run the Project
 
 ### Prerequisites
 
@@ -48,7 +48,7 @@ Ensure you have Python 3 installed along with the following dependencies:
 
 ---
 
-## Methodology
+# Methodology
 
 ### Choosing the Model: Polynomial Regression
 
@@ -74,7 +74,7 @@ Instead of ordinary least squares regression, I opted for ridge regression to pr
 
 ---
 
-## Justification for Model Choices
+# Justification for Model Choices
 
 ### Degree Selection
 
@@ -91,7 +91,7 @@ I tested degree 3, but it resulted in a tighter fit with excessive sensitivity t
 
 ---
 
-## Implementation
+# Implementation
 
 ### Data Preprocessing
 
@@ -108,7 +108,7 @@ I tested degree 3, but it resulted in a tighter fit with excessive sensitivity t
    - Use `PolynomialFeatures(degree=3)` to add cubic terms.
    - Train a ridge regression model with a higher regularization strength (\(\alpha = 100.0\)) to mitigate overfitting.
 
-### Visualization
+# Visualization
 
 Four scatter plots are generated:
 
@@ -133,7 +133,7 @@ I finalized degree 2 as the optimal balance of complexity and predictive perform
 
 ---
 
-## Results and Conclusion
+# Results and Conclusion
 
 - **Degree 2 model** successfully captures nonlinear relationships while avoiding overfitting.
 - **Degree 3 model** demonstrates overfitting tendencies, emphasizing the importance of careful complexity control.
