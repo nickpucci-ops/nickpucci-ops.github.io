@@ -22,12 +22,9 @@ gallery:
   - url: /assets/images/slulml/ML3.jpg
     image_path: /assets/images/slulml/ML3.jpg
     alt: "Screenshot3"
-  - url: /assets/images/slulml/ML5.jpg
-    image_path: /assets/images/slulml/ML5.jpg
-    alt: "Screenshot4"
   - url: /assets/images/slulml/ML8.jpg
     image_path: /assets/images/slulml/ML8.jpg
-    alt: "Screenshot5"
+    alt: "Screenshot4"
 ---
 
 # Introduction
