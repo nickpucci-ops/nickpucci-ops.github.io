@@ -5,8 +5,8 @@ date: 2025-02-23
 collection: projects
 layout: single
 header:
-  image: /assets/images/slulml/ML12.jpg
-  teaser: /assets/images/slulml/ML12.jpg
+  image: /assets/images/slulml/ML11.jpg
+  teaser: /assets/images/slulml/ML11.jpg
 toc: true
 toc_label: "Table of Contents"
 sidebar:
@@ -16,8 +16,19 @@ gallery:
   - url: /assets/images/slulml/ML1.jpg
     image_path: /assets/images/slulml/ML1.jpg
     alt: "Screenshots"
+    - url: /assets/images/slulml/ML2.jpg
+    image_path: /assets/images/slulml/ML2.jpg
+    alt: "Screenshots"
+- url: /assets/images/slulml/ML3.jpg
+    image_path: /assets/images/slulml/ML3.jpg
+    alt: "Screenshots"
+  - url: /assets/images/slulml/ML4.jpg
+    image_path: /assets/images/slulml/ML4.jpg
+    alt: "Screenshots"
+    - url: /assets/images/slulml/ML5.jpg
+    image_path: /assets/images/slulml/ML5.jpg
+    alt: "Screenshots"
 ---
-# Supervised Learning Project: Polynomial Regression with Ridge Regularization
 
 # Introduction
 
@@ -27,7 +38,7 @@ This project explores supervised learning using polynomial regression with ridge
 
 # How to Run the Project
 
-### Prerequisites
+## Prerequisites
 
 Ensure you have Python 3 installed along with the following dependencies:
 
@@ -36,7 +47,7 @@ Ensure you have Python 3 installed along with the following dependencies:
 - scikit-learn
 - matplotlib
 
-### Running the Code
+## Running the Code
 
 1. Clone this repository and navigate to the `supervised-learning` directory.
 2. Place `x.csv`, `y.csv`, and `z.csv` in the directory.
@@ -50,11 +61,11 @@ Ensure you have Python 3 installed along with the following dependencies:
 
 # Methodology
 
-### Choosing the Model: Polynomial Regression
+## Choosing the Model: Polynomial Regression
 
 From an initial analysis of the dataset, scatter plots of \(x\) vs \(z\) and \(y\) vs \(z\) indicated a nonlinear relationship. To model this relationship, I chose polynomial regression with a degree of 2, implemented using `PolynomialFeatures` from scikit-learn.
 
-#### Feature Expansion
+## Feature Expansion
 
 To transform the dataset for polynomial regression, I constructed a feature matrix from \(x\) and \(y\), which included:
 
@@ -62,13 +73,13 @@ To transform the dataset for polynomial regression, I constructed a feature matr
 - \(x\), \(y\) (linear terms)
 - \(x^2\), \(xy\), \(y^2\) (quadratic terms)
 
-This feature expansion allows the model to capture quadratic interactions while keeping it interpretable and computationally efficient.
+{% include gallery class = "full" %}
 
-### Normalization
+## Normalization
 
 Given the large scale of \(z\) (in billions), normalization was necessary to prevent numerical instability and ensure effective learning. I used `StandardScaler` to standardize \(x\), \(y\), and \(z\), transforming them to have zero mean and unit variance.
 
-### Regularization: Ridge Regression
+## Regularization: Ridge Regression
 
 Instead of ordinary least squares regression, I opted for ridge regression to prevent overfitting. Ridge regression adds an L2 penalty to large coefficient values, improving model generalization. I set \(\alpha = 1.0\) to balance fit and complexity.
 
@@ -76,14 +87,14 @@ Instead of ordinary least squares regression, I opted for ridge regression to pr
 
 # Justification for Model Choices
 
-### Degree Selection
+## Degree Selection
 
 - **Degree 2 (Preferred Model)**: Captures nonlinearity while remaining simple and interpretable. It provides a good balance between bias and variance.
 - **Degree 3 (Alternative Model)**: Includes additional cubic terms, increasing flexibility but also the risk of overfitting, particularly with limited data.
 
 I tested degree 3, but it resulted in a tighter fit with excessive sensitivity to noise, suggesting overfitting in sparse regions. Thus, I prioritized degree 2 to ensure robustness.
 
-### Ridge Regularization
+## Ridge Regularization
 
 - Without regularization, polynomial regression is highly susceptible to overfitting.
 - Ridge regression controls model complexity by penalizing large coefficients, leading to better generalization.
@@ -93,12 +104,12 @@ I tested degree 3, but it resulted in a tighter fit with excessive sensitivity t
 
 # Implementation
 
-### Data Preprocessing
+## Data Preprocessing
 
 1. Load \(x\), \(y\), and \(z\) values from CSV files.
 2. Standardize \(x\), \(y\), and \(z\) for numerical stability.
 
-### Model Training and Prediction
+## Model Training and Prediction
 
 1. **Degree 2 Model**:
    - Transform features using `PolynomialFeatures(degree=2)`.
