@@ -29,7 +29,7 @@ gallery:
 
 # Introduction
 
-This project explores supervised learning using polynomial regression with ridge regularization to predict a target variable z based on two input attributes x and y. The dataset consists of 50 noisy samples, and the objective is to develop a model that captures nonlinear relationships while maintaining generalizability. This report details my thought process in model selection, feature engineering, regularization, and evaluation. This was a neat assignment for my CS465 AI class.
+This project explores supervised learning using polynomial regression with ridge regularization to predict a target variable z based on two input attributes x and y. The dataset consists of 50 noisy samples, and the objective is to develop a model that captures nonlinear relationships while maintaining generalizability. This report details my thought process in model selection, feature engineering, regularization, and evaluation. This was an assignment for my CS465 AI class as well as my first exposure to applying real machine-learning concepts which I thoroughly enjoyed working through.
 
 ---
 
