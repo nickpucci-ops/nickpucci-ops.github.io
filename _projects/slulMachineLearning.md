@@ -13,14 +13,14 @@ sidebar:
   - title: "Tools Used"
     text: "Python, scikit-learn, MATLAB, numpy, pandas, matplotlib"
 gallery:
-  - url: /assets/images/ml-homework/xy-alpha-25.jpg
-    image_path: /assets/images/ml-homework/xy-alpha-25.jpg
+  - url: /assets/images/ml-homework/XY-alpha=25.jpg
+    image_path: /assets/images/ml-homework/XY-alpha=25.jpg
     alt: "Supervised Learning Prediction"
-  - url: /assets/images/ml-homework/datasetA-k6.jpg
-    image_path: /assets/images/ml-homework/datasetA-k6.jpg
+  - url: /assets/images/ml-homework/BICpredictA(k=6).jpg
+    image_path: /assets/images/ml-homework/BICpredictA(k=6).jpg
     alt: "DatasetA k=6 Clusters"
-  - url: /assets/images/ml-homework/datasetB-k5.jpg
-    image_path: /assets/images/ml-homework/datasetB-k5.jpg
+  - url: /assets/images/ml-homework/scale2.jpg
+    image_path: /assets/images/ml-homework/scale2.jpg
     alt: "DatasetB k=5 Clusters"
 ---
 
@@ -31,7 +31,7 @@ This project covers two machine learning tasks from my AI class assignment: pred
 ---
 
 # How to Run the Project
-
+Link to the repo: https://github.com/nickpucci-ops/SL-and-UL-machine-learning.git
 ## Supervised Learning
 ### Dependecies
 
