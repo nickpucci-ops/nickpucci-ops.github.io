@@ -1,159 +1,117 @@
 ---
-title: "Machine Learning: SL and UL"
-excerpt: "An analysis of supervised learning and unsupervised learning processes"
-date: 2025-02-23
+title: "Machine Learning: Supervised and Unsupervised Learning"
+excerpt: "Predicting values with Polynomial Ridge Regression and clustering with Gaussian Mixture Models"
+date: 2025-03-17
 collection: projects
 layout: single
 header:
-  image: /assets/images/slulml/ML11.jpg
-  teaser: /assets/images/slulml/ML11.jpg
+  image: /assets/images/ml-homework/header.jpg
+  teaser: /assets/images/ml-homework/teaser.jpg
 toc: true
 toc_label: "Table of Contents"
 sidebar:
   - title: "Tools Used"
-    text: "Python, scikit-learn, matplotlib, numpy"
+    text: "Python, scikit-learn, MATLAB, numpy, pandas, matplotlib"
 gallery:
-  - url: /assets/images/slulml/ML1.jpg
-    image_path: /assets/images/slulml/ML1.jpg
-    alt: "Screenshot1"
-  - url: /assets/images/slulml/ML2.jpg
-    image_path: /assets/images/slulml/ML2.jpg
-    alt: "Screenshot2"
-  - url: /assets/images/slulml/ML3.jpg
-    image_path: /assets/images/slulml/ML3.jpg
-    alt: "Screenshot3"
-  - url: /assets/images/slulml/ML8.jpg
-    image_path: /assets/images/slulml/ML8.jpg
-    alt: "Screenshot4"
+  - url: /assets/images/ml-homework/xy-alpha-25.jpg
+    image_path: /assets/images/ml-homework/xy-alpha-25.jpg
+    alt: "Supervised Learning Prediction"
+  - url: /assets/images/ml-homework/datasetA-k6.jpg
+    image_path: /assets/images/ml-homework/datasetA-k6.jpg
+    alt: "DatasetA k=6 Clusters"
+  - url: /assets/images/ml-homework/datasetB-k5.jpg
+    image_path: /assets/images/ml-homework/datasetB-k5.jpg
+    alt: "DatasetB k=5 Clusters"
 ---
 
 # Introduction
 
-This project explores supervised learning using polynomial regression with ridge regularization to predict a target variable z based on two input attributes x and y. The dataset consists of 50 noisy samples, and the objective is to develop a model that captures nonlinear relationships while maintaining generalizability. This report details my thought process in model selection, feature engineering, regularization, and evaluation. This was an assignment for my CS465 AI class as well as my first exposure to applying real machine-learning concepts which I thoroughly enjoyed working through.
+This project covers two machine learning tasks from my AI class assignment: predicting a target variable z using supervised learning (Polynomial Ridge Regression) and identifying clusters in unlabeled datasets using unsupervised learning (Gaussian Mixture Models). With 50 samples for supervised learning and two datasets (A and B) for clustering, my goal was to build effective models and visualize the results.
 
 ---
 
 # How to Run the Project
 
-## Prerequisites
+## Supervised Learning
+### Dependecies
 
-Ensure you have Python 3 installed along with the following dependencies:
+```bash
+pip install scikit-learn numpy pandas
+```
+### Scripts
+- Clone the repo to your root directory.
+- To train: 
+```bash
+python3 train_model.py
+```
+- To visualize:
+```bash
+python3 visualize_model.py
+```
+- To generate synthetic data:
+```bash
+python3 generate_samples.py
+```
+- To visualize x.csv and y.csv against z.csv
+```bash
+python2 xy.py
+```
+ 
+## Unsupervised Learning
 
-- pandas
-- numpy
-- scikit-learn
-- matplotlib
-
-## Running the Code
-
-1. Clone this repository and navigate to the `supervised-learning` directory.
-2. Place `x.csv`, `y.csv`, and `z.csv` in the directory.
-3. Run the script using:
-   ```sh
-   python3 script.py
-   ```
-4. The predicted values will be output to `z-predicted.csv` upon completion.
+Implemented in MATLAB. Requires datasets A and B (not provided here). Run the script to fit GMMs and generate cluster visualizations.
 
 ---
 
 # Methodology
+## Supervised Learning: Polynomial Ridge Regression
+- Model: Polynomial degree 3 with Ridge regularization (alpha = 25.0).
+- Process:
+        Combined x and y into a feature matrix, scaled with StandardScaler.
+        Trained on 80% of 50 samples, tested on 20%, with 5 random restarts to pick the best model (lowest test MSE).
+- Why?: Scatter plots showed a cubic trend. Ridge prevented overfitting on this small, slightly noisy dataset.
 
-## Choosing the Model: Polynomial Regression
+### Normalization
 
-From an initial analysis of the dataset, scatter plots of x vs z and y vs z indicated a nonlinear relationship. To model this relationship, I chose polynomial regression with a degree of 2, implemented using `PolynomialFeatures` from scikit-learn.
+Given the large scale of z (in billions), normalization was necessary to prevent numerical instability and ensure effective learning. I used `StandardScaler` to standardize x, y, and z, transforming them to have zero mean and unit variance.
 
-## Feature Expansion
+## Unsupervised Learning: Gaussian Mixture Models (GMM)
+- Model: GMM with Bayesian Information Criterion (BIC) to select cluster count k.
+- Process:
+        DatasetA: Tested k=1 to 10, chose k=6 for balanced fit.
+        DatasetB: BIC consistently picked k=5.
+        Visualized clusters with means, covariances, and ellipses.
+- Why?: GMM handles non-spherical clusters better than K-means, fitting the ellipsoidal data shapes.
 
-To transform the dataset for polynomial regression, I constructed a feature matrix from \(x\) and \(y\), which included:
-
-- 1 (intercept)
-- x, y (linear terms)
-- x^2, xy, y^2 (quadratic terms)
+# Results
+## Supervised Learning
+- Prediction: Captured the cubic relationship well with minimal overfitting.
+- Visualization: Predicted z vs. actual z shows a tight fit with alpha = 25.0 balancing noise.
+show picture here
+XY-alpha=25
+## Unsupervised Learning
+- DatasetA (k=6): Six clusters captured the main groups without over-segmenting
+pic
+DatasetAk=6
+- DatasetB (k=5): Five stable clusters matched BIC and visuals.
+pic
+DatasetBk=5
 
 ## Gallery
 {% include gallery class = "full" %}
 
-## Normalization
-
-Given the large scale of z (in billions), normalization was necessary to prevent numerical instability and ensure effective learning. I used `StandardScaler` to standardize x, y, and z, transforming them to have zero mean and unit variance.
-
-## Regularization: Ridge Regression
-
+# Justification
+## Supversied Learning
+- Why PolyRidge?: Simpler than SVR or neural networks for 50 samples; cubic fit matched the data; Ridge handled noise.
+- Trade-offs: Degree 3 with alpha = 25.0 avoided overfitting (alpha = 0) and underfitting (alpha = 1000).
+### Regularization: Ridge Regression
 Instead of ordinary least squares regression, I opted for ridge regression to prevent overfitting. Ridge regression adds an L2 penalty to large coefficient values and can improve model generalization. I set alpha = 1.0 to balance fit and complexity.
 
----
-
-# Justification for Model Choices
-
-## Degree Selection
-
-- **Degree 2 (Preferred Model)**: Captures nonlinearity while remaining simple and interpretable. It provides a good balance between bias and variance.
-- **Degree 3 (Alternative Model)**: Includes additional cubic terms. This adds flexibility but also the risk of overfitting, particularly with limited data.
-
-I tested degree 3, but it resulted in a tighter fit with excessive sensitivity to noise which likely means overfitting in sparse regions. Therefore, I prioritized degree 2 to ensure robustness.
-
-## Ridge Regularization
-
-- Without regularization, polynomial regression is highly susceptible to overfitting.
-- Ridge regression controls model complexity by penalizing large coefficients, leading to better generalization.
-- I experimented with different alpha values and found that alpha = 1.0 for degree 2 provided the best trade-off between bias and variance.
+## Unsupervised Learning
+- Why GMM?: Probabilistic clustering suited the overlapping, ellipsoidal data over K-means’ spherical assumption.
+- Trade-offs: k=6 (DatasetA) was safer than k=7 (over-segmented); k=5 (DatasetB) was consistent.
 
 ---
-
-# Implementation
-
-## Data Preprocessing
-
-1. Load x, y, and z values from CSV files.
-2. Standardize x, y, and z for numerical stability.
-
-## Model Training and Prediction
-
-1. **Degree 2 Model**:
-   - Transform features using `PolynomialFeatures(degree=2)`.
-   - Train a ridge regression model with alpha = 1.0.
-   - Predict z and unscale it to match the original scale.
-2. **Degree 3 Model (for comparison)**:
-   - Use `PolynomialFeatures(degree=3)` to add cubic terms.
-   - Train a ridge regression model with a higher regularization strength alpha = 100.0 to reduce overfitting.
-
-# Visualization
-
-Four scatter plots are generated:
-
-1. x vs z (raw data)
-2. y vs z (raw data)
-3. **Degree 2**: Actual vs. Predicted z (Preferred Model)
-4. **Degree 3**: Actual vs. Predicted z (Overfit Model)
-
----
-
-## Trade-offs Between Model Complexity and Empirical Loss
-
-| Model        | Parameters                  | Overfitting Risk | Fit Quality              |
-| ------------ | --------------------------- | ---------------- | ------------------------ |
-| **Degree 2** | 6 (1, x, y, x², xy, y²)     | Low              | Good generalization      |
-| **Degree 3** | 10 (additional cubic terms) | High             | Risk of memorizing noise |
-
-- **Empirical Fit:** Degree 2 model predictions cluster around the 45-degree line with moderate spread which suggesting good generalization.
-- **Overfitting Risk:** Degree 3 model provides a tighter fit but overfits sparse regions.
-
-I finalized degree 2 as the optimal balance of complexity and predictive performance.
-
----
-
-# Results and Conclusion
-
-- **Degree 2 model** successfully captures nonlinear relationships while avoiding overfitting.
-- **Degree 3 model** demonstrates overfitting tendencies, emphasizes the importance of careful complexity control.
-- **Ridge regression** balances fit and complexity by penalizing excessive coefficient magnitudes.
-
-### Next Steps
-
-- **Part 2** Fit gaussians to HW2 dataset to identify the number of parameters of clusters of similar data.
-
----
-
 This project highlights the practical considerations in polynomial regression, feature engineering, and regularization, demonstrating how thoughtful model selection improves predictive accuracy and generalization.
 
 
