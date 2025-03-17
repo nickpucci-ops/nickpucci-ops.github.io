@@ -6,7 +6,7 @@ collection: projects
 layout: single
 header:
   image: /assets/images/ml-homework/XY-synthetic-alpha=25.jpg
-  teaser: /assets/images/ml-homework/Z-synthetic-alpha=25.jpg
+  teaser: /assets/images/ml-homework/bothscales.jpg
 toc: true
 toc_label: "Table of Contents"
 sidebar:
