@@ -22,6 +22,7 @@ gallery:
   - url: /assets/images/ml-homework/scale2.jpg
     image_path: /assets/images/ml-homework/scale2.jpg
     alt: "DatasetB k=5 Clusters"
+
 ---
 
 # Introduction
@@ -30,8 +31,13 @@ This project covers two machine learning tasks from my AI class assignment: pred
 
 ---
 
+## Gallery
+{% include gallery class = "full" %}
+
+---
+
 # How to Run the Project
-Link to the repo: https://github.com/nickpucci-ops/SL-and-UL-machine-learning.git
+Link to the repo: [SL-and-UL-machine-learning](https://github.com/nickpucci-ops/SL-and-UL-machine-learning.git)
 ## Supervised Learning
 ### Dependecies
 
@@ -97,8 +103,6 @@ DatasetAk=6
 pic
 DatasetBk=5
 
-## Gallery
-{% include gallery class = "full" %}
 
 # Justification
 ## Supversied Learning
