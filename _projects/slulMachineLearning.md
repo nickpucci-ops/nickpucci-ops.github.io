@@ -5,8 +5,8 @@ date: 2025-03-17
 collection: projects
 layout: single
 header:
-  image: /assets/images/ml-homework/header.jpg
-  teaser: /assets/images/ml-homework/teaser.jpg
+  image: /assets/images/ml-homework/XY-synthetic-alpha=25.jpg
+  teaser: /assets/images/ml-homework/Z-synthetic-alpha=25.jpg
 toc: true
 toc_label: "Table of Contents"
 sidebar:
