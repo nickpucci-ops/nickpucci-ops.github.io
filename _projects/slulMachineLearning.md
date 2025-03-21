@@ -15,151 +15,117 @@ sidebar:
 gallery:
   - url: /assets/images/ml-homework/XY-alpha=25.jpg
     image_path: /assets/images/ml-homework/XY-alpha=25.jpg
-    alt: "Supervised Learning Prediction"
+    alt: "Supervised Learning Prediction (alpha=25)"
   - url: /assets/images/ml-homework/BICpredictA(k=6).jpg
     image_path: /assets/images/ml-homework/BICpredictA(k=6).jpg
     alt: "DatasetA k=6 Clusters"
   - url: /assets/images/ml-homework/scale2.jpg
     image_path: /assets/images/ml-homework/scale2.jpg
     alt: "DatasetB k=5 Clusters"
-
 ---
 
 # Introduction
 
-This project covers two machine learning tasks from my AI class assignment: predicting a target variable z using supervised learning (Polynomial Ridge Regression) and identifying clusters in unlabeled datasets using unsupervised learning (Gaussian Mixture Models). With 50 samples for supervised learning and two datasets (A and B) for clustering, my goal was to build effective models and visualize the results.
+This project is from my CS465 AI class, where I tackled two machine learning tasks. For supervised learning, I predicted a target variable `z` from `x` and `y` using Polynomial Ridge Regression. For unsupervised learning, I clustered two datasets (A and B) with Gaussian Mixture Models (GMM). With just 50 samples for supervised and two mystery datasets for unsupervised, I wanted to figure out solid models and show my results with visuals. Here’s how I did it!
 
 ---
 
-## Gallery
-{% include gallery class = "full" %}
+# How to Run It
 
----
+Repo: [SL-and-UL-machine-learning](https://github.com/nickpucci-ops/SL-and-UL-machine-learning.git)
 
-# How to Run the Project
-Link to the repo: [SL-and-UL-machine-learning](https://github.com/nickpucci-ops/SL-and-UL-machine-learning.git)
 ## Supervised Learning
-### Dependecies
+- **Dependencies**:
+  ```bash
+  pip install scikit-learn numpy pandas
+```
 
-```bash
-pip install scikit-learn numpy pandas
-```
-### Scripts
-- Clone the repo to your root directory.
-- To train: 
-```bash
-python3 train_model.py
-```
-- To visualize:
-```bash
-python3 visualize_model.py
-```
-- To generate synthetic data:
-```bash
-python3 generate_samples.py
-```
-- To visualize x.csv and y.csv against z.csv
-```bash
-python3 xy.py
-```
- 
+- **Steps**:
+  1. Clone the repo.
+  2. Train the model: `python3 train_model.py`
+  3. Visualize results: `python3 visualize_model.py`
+
+- **Other useful scripts**
+  1. Generate synthetic data: `python3 generate_samples.py`
+  2. Plot x and y vs. z: `python3 xy.py`
+
 ## Unsupervised Learning
-
-Implemented in MATLAB. Requires datasets A and B (not provided here). Run the script to fit GMMs and generate cluster visualizations.
+- Done in MATLAB. Needs datasets A and B (not shared here). Run the script to fit GMMs and see cluster plots.
 
 ---
 
 # Supervised Learning: Polynomial Ridge Regression
-## Task 
-Provided three csv files (x, y as input attributes and z as target values) I needed to choose a parametric supervised learning method to train multiple models and choose one to predict its z values on unseen data (output to z-predicted.csv).   
-## Methodology
-First I wanted to see the data and visualize what I was dealing with. The csv files were float values all in one row. So I combined x and y into a 50x2 matrix and wrote a simple matplotlib script to visualize it
-- [xy](assets/images/ml-homework/xy.jpg)
-Instantly I could see this was a clear cubic trend, so I knew I could use a Polynomial Regression model to train on this data. I used a degree of 3 to represent a cubic function and help the model best match to the trend. But, I would also need to choose a regressor that would regulate the data.However this is also a non-linear relationship with a little bit of noise present. If I used linear regression as my regressor, it would completely overfit to the data as seen below:
-- [XY-alpha=0](assets/images/ml-homework/XY-alpha=0.jpg)
-This is where my choice of ridge regression comes in. Ridge regression allows me to regulate along the trend and penalize noise and outliers with an alpha constant. The alpha constant multiples an L2 term and determines how strong the regularization will be. Here are some examples of different alpha values I experimented with:
-- XY-alpha=10
-- [XY-alpha=10](assets/images/ml-homework/XY-alpha=10.jpg)
-- XY-alpha=25
-- [XY-alpha=25](assets/images/ml-homework/XY-alpha=25.jpg)
-- XY-alpha=1000
-- [XY-alpha=1000](assets/images/ml-homework/XY-alpha=1000.jpg)
-From the graphs, it's clear that alpha=25 offered the best balance between an overfit risk in alpha=10 and an underfit risk in alpha=1000. This gave me enough for me to now land on a learning method and start training a model. 
 
-## Training
-I ran 5 iteraions of PolyRidge regression with a degree of 3 and an alpha value of 25 and calculated the MSE for each model. For each iteration, I trained the model on a different random seed to account for variability. For simplicity, I elected the model with the lowest MSE of that alpha value's training cycle. I proceeded to compare those with more training cycles on the alternative alpha values (0, 1, 100, etc.) and after doing some comparisons, I was still satisfied with my alpha=25 choice as it still offered the best fit. 
+## The Task
+## Objective
+I was provided with three CSV files: x and y as input attributes and z as the target variable. Each contains 50 float values in a single row. The task was to select a supervised learning method, train multiple models, and predict z for unseen data, outputting the results to z-predicted.csv.
 
-Now that I had trained my model, I wanted to verify my training method was valid and would work for any given dataset. So, I wrote a script that would generate samples similar to how the given csv files were. Here is the synthetic data generated along with my trained model being applied on it.
-- [synthetic-xy](assets/images/ml-homework/synthetic-XY.jpg)
-- [XY-synthetic-alpha=25](assets/images/ml-homework/XY-synthetic-alpha=25.jpg)
+## Approach
+I first wanted to visualize what I was working with to see if there were any trends or patterns I could identify. I stacked x and y into a 50x2 matrix and plotted them against z with a quick matplotlib script:
+- [xy.jpg](/assets/images/ml-homework/xy.jpg)
+
+Immediately what stood out to me was that this data was non-linear and followed a cubic trend. This meant I could use Polynomial Regression to follow the polynomial function. Because it's cubic, that means I would use a degree 3 to match the curve. But there’s also slight noise in the data, and a plain linear regressor would risk overfitting. So we need a way to regularize against this. This is when I discovered Ridge Regression, but first to demonstrate, here is an example of a trained model that utilizes a linear regressor (alpha=0, no regularization):
+- [XY-alpha=0.jpg](/assets/images/ml-homework/XY-alpha=0.jpg)
+
+The predicted z values (red) align exactly with the original data which is a clear assign of severe overfitting. So, I combined polynomial regresssion with ridge regression to smooth out the predictions to more closely follow an underlining trend. 
+Ridge adds an L2 penalty via an alpha constant. A higher alpha means more noise control. I ran a couple more tests to find an optimal alpha constant [10, 25, 1000]:
+- [XY-alpha=10.jpg](/assets/images/ml-homework/XY-alpha=10.jpg)
+- [XY-alpha=25.jpg](/assets/images/ml-homework/XY-alpha=25.jpg)
+- [XY-alpha=1000.jpg](/assets/images/ml-homework/XY-alpha=1000.jpg)
+
+Alpha=25 looked best—followed the trend without freaking out over noise.
+
+## Training and Testing
+I trained 5 models with degree 3 and alpha=25, each with a different random seed (80% train, 20% test). I picked the one with the lowest test MSE. To double-check, I compared it against alpha=0, 10, 100, etc., and 25 still ruled. Since `z` was huge (billions!), I used `StandardScaler` to normalize everything, then unscaled predictions to match the original scale.
+
+To prove it wasn’t a fluke, I made synthetic data mimicking the CSV files—100 samples with some extra large noise:
+- [synthetic-xy.jpg](/assets/images/ml-homework/synthetic-xy.jpg)
+- [XY-synthetic-alpha=25.jpg](/assets/images/ml-homework/XY-synthetic-alpha=25.jpg)
+
+The model nailed it, balancing fit and generalization.
 
 ---
+
 # Unsupervised Learning: Gaussian Mixture Models
-## Task
-Provided two datasets (A and B) I needed to use an unsupervised learning method to train a model to identify (k) clusters in the dataset and provide the means and covariances. Some clusters were repeated between both datasets and so I would need to figure out which clusters those were as well.
-## Methodology
-The assignment stated undergraduates would use K-meamns while graduate students must use Gaussian Mixture Models (GMM). I opted to take the GMM route though I was still an undergrad.  
-- DatasetA.jpg
-- DatasetB.jpg
 
-When applying the model, I consistently was getting k=5 clusters for DatasetB, meanwhile DatasetA was trickier and would often get either k=6 or k=7
+## The Task
+I got two datasets, A and B, and had to find clusters (k), their means, and covariances using an unsupervised method. Some clusters might repeat between datasets, so I had to spot those too.
 
-## Justification
+## My Process
+The assignment said undergrads use K-means, but grad students use GMM. I’m an undergrad, but I went GMM anyway—heard it’s big in data science and handles funky, ellipsoidal clusters better than K-means’ boring spheres.
 
-Although I was an undergraduate, I wanted to try using GMM to complete this assignment because GMM is better for identifying non-spherical (or ellipsoidal) clusters. The challenge for grad students was that i 
+I used MATLAB and the Bayesian Information Criterion (BIC) to pick `k`, testing 1 to 10. DatasetB was easy—BIC almost always said `k=5`, and the scatter plots agreed:
+- [scale2.jpg](/assets/images/ml-homework/scale2.jpg)
+
+DatasetA was trickier. BIC flipped between `k=6` and `k=7`. I eyeballed the plots and saw overlap around `x:-5 to 10, y:-5 to 10`. Here’s `k=6`:
+- [BICpredictA(k=6).jpg](/assets/images/ml-homework/BICpredictA(k=6).jpg)
+
+And `k=7` sometimes split clusters too much, so I stuck with `k=6`—it felt safer and matched the data’s vibe.
+
+## Finding Repeated Clusters
+I compared means and covariances across datasets. Two stood out:
+- DatasetA Cluster 3 (mean: 2.92, 4.42) and DatasetB Cluster 4 (mean: 2.04, 4.23)—close means, same spot, but different shapes.
+- DatasetA Cluster 1 (mean: 12.36, 5.97) and DatasetB Cluster 1 (mean: 12.96, 3.95)—similar `x`, but covariances shifted their look.
+
+Means say “repeated,” but covariances say “not quite identical.” Cool twist!
+
+---
+
+# Gallery
+{% include gallery class="full" %}
+
+---
+
+# Why I Chose These Methods
+
+## Supervised: Why PolyRidge?
+The cubic trend was obvious, and 50 samples ruled out fancy stuff like SVR or neural networks—too much tuning, not enough data. Polynomial Regression was simple, and Ridge kept the noise in check. Alpha=25 avoided overfitting (alpha=0) and underfitting (alpha=1000).
+
+## Unsupervised: Why GMM?
+GMM’s probabilistic vibe fit the ellipsoidal clusters I saw. K-means assumes spheres—lame for this data. `k=6` for DatasetA avoided over-segmenting (unlike `k=7`), and `k=5` for DatasetB was a no-brainer.
+
+---
 
 # Conclusion
 
-I really liked this part and found it to be super interesting to solve. It was great first exposure to supervised learning methods and also the thinking process of determining the best course of action in machine learning applications.   
-
-
-# Methodology
-## Supervised Learning: Polynomial Ridge Regression
-- Model: Polynomial degree 3 with Ridge regularization (alpha = 25.0).
-- Process:
-        Combined x and y into a feature matrix, scaled with StandardScaler.
-        Trained on 80% of 50 samples, tested on 20%, with 5 random restarts to pick the best model (lowest test MSE).
-- Why?: The scatter plots showed a cubic trend. Ridge prevented overfitting on this small, slightly noisy dataset.
-
-### Normalization
-
-Given the large scale of z (in billions), normalization was necessary to prevent numerical instability and ensure effective learning. I used `StandardScaler` to standardize x, y, and z, transforming them to have zero mean and unit variance.
-
-## Unsupervised Learning: Gaussian Mixture Models (GMM)
-- Model: GMM with Bayesian Information Criterion (BIC) to select cluster count k.
-- Process:
-        DatasetA: Tested k=1 to 10, chose k=6 for balanced fit.
-        DatasetB: BIC consistently picked k=5.
-        Visualized clusters with means, covariances, and ellipses.
-- Why?: GMM handles non-spherical clusters better than K-means, fitting the ellipsoidal data shapes.
-
-# Results
-## Supervised Learning
-- Prediction: Captured the cubic relationship well with minimal overfitting.
-- Visualization: Predicted z vs. actual z shows a tight fit with alpha = 25.0 balancing noise.
-show picture here
-XY-alpha=25
-## Unsupervised Learning
-- DatasetA (k=6): Six clusters captured the main groups without over-segmenting
-pic
-DatasetAk=6
-- DatasetB (k=5): Five stable clusters matched BIC and visuals.
-pic
-DatasetBk=5
-
-
-# Justification
-## Supversied Learning
-- Why PolyRidge?: Simpler than SVR or neural networks for 50 samples; cubic fit matched the data; Ridge handled noise.
-- Trade-offs: Degree 3 with alpha = 25.0 avoided overfitting (alpha = 0) and underfitting (alpha = 1000).
-### Regularization: Ridge Regression
-Instead of ordinary least squares regression, I opted for ridge regression to prevent overfitting. Ridge regression adds an L2 penalty to large coefficient values and can improve model generalization. I set alpha = 1.0 to balance fit and complexity.
-
-## Unsupervised Learning
-- Why GMM?: Probabilistic clustering suited the overlapping, ellipsoidal data over K-means’ spherical assumption.
-- Trade-offs: k=6 (DatasetA) was safer than k=7 (over-segmented); k=5 (DatasetB) was consistent.
-
----
-This project highlights the practical considerations in polynomial regression, feature engineering, and regularization, demonstrating how thoughtful model selection improves predictive accuracy and generalization.
-
-
+This was my first real swing at machine learning, and I loved it! For supervised, PolyRidge with alpha=25 nailed the cubic trend without overfitting. For unsupervised, GMM uncovered `k=6` and `k=5` clusters and taught me how means and covariances tell different stories. Figuring out the “why” behind my choices—like regularization or BIC—was the best part. Solid intro to ML!
