@@ -60,7 +60,7 @@ python3 generate_samples.py
 ```
 - To visualize x.csv and y.csv against z.csv
 ```bash
-python2 xy.py
+python3 xy.py
 ```
  
 ## Unsupervised Learning
@@ -69,13 +69,57 @@ Implemented in MATLAB. Requires datasets A and B (not provided here). Run the sc
 
 ---
 
+# Supervised Learning: Polynomial Ridge Regression
+## Task 
+Provided three csv files (x, y as input attributes and z as target values) I needed to choose a parametric supervised learning method to train multiple models and choose one to predict its z values on unseen data (output to z-predicted.csv).   
+## Methodology
+First I wanted to see the data and visualize what I was dealing with. The csv files were float values all in one row. So I combined x and y into a 50x2 matrix and wrote a simple matplotlib script to visualize it
+- [xy](assets/images/ml-homework/xy.jpg)
+Instantly I could see this was a clear cubic trend, so I knew I could use a Polynomial Regression model to train on this data. I used a degree of 3 to represent a cubic function and help the model best match to the trend. But, I would also need to choose a regressor that would regulate the data.However this is also a non-linear relationship with a little bit of noise present. If I used linear regression as my regressor, it would completely overfit to the data as seen below:
+- [XY-alpha=0](assets/images/ml-homework/XY-alpha=0.jpg)
+This is where my choice of ridge regression comes in. Ridge regression allows me to regulate along the trend and penalize noise and outliers with an alpha constant. The alpha constant multiples an L2 term and determines how strong the regularization will be. Here are some examples of different alpha values I experimented with:
+- XY-alpha=10
+- [XY-alpha=10](assets/images/ml-homework/XY-alpha=10.jpg)
+- XY-alpha=25
+- [XY-alpha=25](assets/images/ml-homework/XY-alpha=25.jpg)
+- XY-alpha=1000
+- [XY-alpha=1000](assets/images/ml-homework/XY-alpha=1000.jpg)
+From the graphs, it's clear that alpha=25 offered the best balance between an overfit risk in alpha=10 and an underfit risk in alpha=1000. This gave me enough for me to now land on a learning method and start training a model. 
+
+## Training
+I ran 5 iteraions of PolyRidge regression with a degree of 3 and an alpha value of 25 and calculated the MSE for each model. For each iteration, I trained the model on a different random seed to account for variability. For simplicity, I elected the model with the lowest MSE of that alpha value's training cycle. I proceeded to compare those with more training cycles on the alternative alpha values (0, 1, 100, etc.) and after doing some comparisons, I was still satisfied with my alpha=25 choice as it still offered the best fit. 
+
+Now that I had trained my model, I wanted to verify my training method was valid and would work for any given dataset. So, I wrote a script that would generate samples similar to how the given csv files were. Here is the synthetic data generated along with my trained model being applied on it.
+- [synthetic-xy](assets/images/ml-homework/synthetic-XY.jpg)
+- [XY-synthetic-alpha=25](assets/images/ml-homework/XY-synthetic-alpha=25.jpg)
+
+---
+# Unsupervised Learning: Gaussian Mixture Models
+## Task
+Provided two datasets (A and B) I needed to use an unsupervised learning method to train a model to identify (k) clusters in the dataset and provide the means and covariances. Some clusters were repeated between both datasets and so I would need to figure out which clusters those were as well.
+## Methodology
+The assignment stated undergraduates would use K-meamns while graduate students must use Gaussian Mixture Models (GMM). I opted to take the GMM route though I was still an undergrad.  
+- DatasetA.jpg
+- DatasetB.jpg
+
+When applying the model, I consistently was getting k=5 clusters for DatasetB, meanwhile DatasetA was trickier and would often get either k=6 or k=7
+
+## Justification
+
+Although I was an undergraduate, I wanted to try using GMM to complete this assignment because GMM is better for identifying non-spherical (or ellipsoidal) clusters. The challenge for grad students was that i 
+
+# Conclusion
+
+I really liked this part and found it to be super interesting to solve. It was great first exposure to supervised learning methods and also the thinking process of determining the best course of action in machine learning applications.   
+
+
 # Methodology
 ## Supervised Learning: Polynomial Ridge Regression
 - Model: Polynomial degree 3 with Ridge regularization (alpha = 25.0).
 - Process:
         Combined x and y into a feature matrix, scaled with StandardScaler.
         Trained on 80% of 50 samples, tested on 20%, with 5 random restarts to pick the best model (lowest test MSE).
-- Why?: Scatter plots showed a cubic trend. Ridge prevented overfitting on this small, slightly noisy dataset.
+- Why?: The scatter plots showed a cubic trend. Ridge prevented overfitting on this small, slightly noisy dataset.
 
 ### Normalization
 
