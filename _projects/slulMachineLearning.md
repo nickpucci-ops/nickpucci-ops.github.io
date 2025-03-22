@@ -17,7 +17,7 @@ gallery:
     image_path: /assets/images/ml-homework/XY-alpha=25.jpg
     alt: "Supervised Learning Prediction (alpha=25)"
   - url: /assets/images/ml-homework/BICpredictA(k=6).jpg
-    image_path: /assets/images/ml-homework/BICpredictA(k=6).jpg
+    image_path: /assets/images/ml-homework/BICpredictAk=6.jpg
     alt: "DatasetA k=6 Clusters"
   - url: /assets/images/ml-homework/scale2.jpg
     image_path: /assets/images/ml-homework/scale2.jpg
@@ -106,14 +106,18 @@ For DatasetB, BIC consistently indicated k=5, which aligned with the visualizati
 ![BICpredictB.jpg](/assets/images/ml-homework/BICpredictB.jpg)
 ![GMMBclusterk=5.jpg](/assets/images/ml-homework/GMMBclusterk=5.jpg)
 
-DatasetA proved more challenging, with the BIC score fluctuating between k=6 and k=7. Visual inspection revealed potential overlap around x:-5 to 10, y:-5 to 10. The k=6 result is shown here:
+DatasetA proved more challenging, with the BIC score fluctuating between k=6 and k=7: 
+Visual inspection revealed potential overlap around x:-5 to 10, y:-5 to 10. The k=6 result is shown here:
 
 ![BICpredictAk=6.jpg](/assets/images/ml-homework/BICpredictAk=6.jpg)
-
-While k=7 occasionally appeared, it often over-segmented the data, leading me to select k=6 as the more reliable option based on both BIC and visual consistency.
-
 ![BICpredictAk=7.jpg](/assets/images/ml-homework/BICpredictAk=7.jpg)
+
+While k=7 occasionally appeared, it often over-segmented the data, leading me to select k=6 as the more reliable option based on both BIC and visual consistency. Most times it would split very obvious singular clusters in two, however, the following comparison displays the best version of k=7 I could obtain:
+
+![GMMAclusterk=6.jpg](/assets/images/ml-homework/GMMAclusterk=6.jpg)
 ![GMMAclusterk=7.jpg](/assets/images/ml-homework/GMMAclusterk=7.jpg)
+
+I was pretty satisified with choosing k=6 as my final cluster prediction as it was the safer option and more accurately represented the data in my opinion
 
 ## Cluster Comparison
 We can identify the clusters that may be repeated across datasets by calculating mean of each cluster and identifying which clusters have means that are similar or close to each other. 
