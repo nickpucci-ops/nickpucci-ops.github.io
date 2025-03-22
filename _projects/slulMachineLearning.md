@@ -16,8 +16,11 @@ gallery:
   - url: /assets/images/ml-homework/XY-alpha=25.jpg
     image_path: /assets/images/ml-homework/XY-alpha=25.jpg
     alt: "Supervised Learning Prediction (alpha=25)"
-  - url: /assets/images/ml-homework/BICpredictA(k=6).jpg
+  - url: /assets/images/ml-homework/BICpredictAk=6.jpg
     image_path: /assets/images/ml-homework/BICpredictAk=6.jpg
+    alt: "DatasetA BIC"
+  - url: /assets/images/ml-homework/scale1.jpg
+    image_path: /assets/images/ml-homework/scale1.jpg
     alt: "DatasetA k=6 Clusters"
   - url: /assets/images/ml-homework/scale2.jpg
     image_path: /assets/images/ml-homework/scale2.jpg
@@ -26,6 +29,7 @@ gallery:
 
 # Introduction
 
+This project was completed as part of my AI course, addressing two machine learning objectives. In the supervised learning component, I utilized Polynomial Ridge Regression to predict a target variable z based on input features x and y. For the unsupervised learning task, I applied Gaussian Mixture Models (GMM) to identify clusters within two datasets, labeled A and B. With a supervised dataset of 50 samples and two undisclosed datasets for unsupervised analysis, my goal was to develop effective models and present the outcomes through clear visualizations. This page outlines my methodology and findings.
 
 ---
 
@@ -68,10 +72,11 @@ Immediately what stood out to me was that this data was non-linear and followed 
 ![XY-alpha=0.jpg](/assets/images/ml-homework/XY-alpha=0.jpg)
 
 The predicted z values (red) align exactly with the original data which is a clear sign of severe overfitting. This is where ridge regression can come in to smooth out the predictions and more closely follow an underlining trend. 
-Ridge adds an L2 penalty via an alpha constant. A higher alpha means more noise control. I ran a couple more tests to find an optimal alpha constant [10, 25, 1000]:
+Ridge adds an L2 penalty via an alpha constant. A higher alpha means more noise control. I ran a couple more tests to find an optimal alpha constant [10, 25, 100, 1000]:
 
 ![XY-alpha=10.jpg](/assets/images/ml-homework/XY-alpha=10.jpg)
 ![XY-alpha=25.jpg](/assets/images/ml-homework/XY-alpha=25.jpg)
+![XY-alpha=100.jpg](/assets/images/ml-homework/XY-alpha=100.jpg)
 ![XY-alpha=1000.jpg](/assets/images/ml-homework/XY-alpha=1000.jpg)
 
 I thought alpha=25 provided a great balance between an overfit and underfit risk among all other cases I tested.
@@ -95,6 +100,9 @@ The model nailed it, balancing fit and generalization.
 
 ## Task
 Given two datasets, A and B, the task was to identify the number of clusters (k), their means, and covariances using an unsupervised learning method. Additionally, I needed to determine if any clusters were repeated across the datasets.
+
+![DatasetA.jpg](/assets/images/ml-homework/DatasetA.jpg)
+![DatasetB.jpg](/assets/images/ml-homework/DatasetB.jpg)
 
 ## Approach
 I opted for Gaussian Mixture Models (GMM) since GMM is well-suited for ellipsoidal clusters. It's also widely used in advanced applications, so I thought this could be a great way to learn about it.   
