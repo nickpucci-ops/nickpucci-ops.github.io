@@ -1,5 +1,5 @@
 ---
-title: "Machine Learning: Supervised/Unsupervised"
+title: "Machine Learning: Supervised and Unsupervised"
 excerpt: "Predicting values with Polynomial Ridge Regression and clustering with Gaussian Mixture Models"
 date: 2025-03-17
 collection: projects
@@ -61,11 +61,11 @@ I was provided with three CSV files: x and y as input attributes and z as the ta
 ## Approach
 I first wanted to visualize what I was working with to see if there were any trends or patterns I could identify. I stacked x and y into a 50x2 matrix and plotted them against z with a quick matplotlib script:
 
-[xy.jpg](/assets/images/ml-homework/xy.jpg)
+![xy.jpg](/assets/images/ml-homework/xy.jpg)
 
 Immediately what stood out to me was that this data was non-linear and followed a cubic trend. This meant I could use Polynomial Regression to follow the polynomial function. Because it's cubic, that means I would use a degree 3 to match the curve. But there’s also slight noise in the data, and a plain linear regressor would risk overfitting. So we need a way to regularize against this. This is when I discovered Ridge Regression, but first to demonstrate, here is an example of a trained model that utilizes a linear regressor (alpha=0, no regularization):
 
-[XY-alpha=0.jpg](/assets/images/ml-homework/XY-alpha=0.jpg)
+![XY-alpha=0.jpg](/assets/images/ml-homework/XY-alpha=0.jpg)
 
 The predicted z values (red) align exactly with the original data which is a clear sign of severe overfitting. This is where ridge regression can come in to smooth out the predictions and more closely follow an underlining trend. 
 Ridge adds an L2 penalty via an alpha constant. A higher alpha means more noise control. I ran a couple more tests to find an optimal alpha constant [10, 25, 1000]:
@@ -124,8 +124,8 @@ To identify repeated clusters, I analyzed the means and covariances across datas
 - similar means and positions, though covariances indicated different shapes.
 - DatasetA Cluster 1 (mean: 12.36, 5.97) and DatasetB Cluster 1 (mean: 12.96, 3.95)
 - close in the x dimension, but differing covariances altered their spread.
-- Here are both scatter plots side-by-side, color is correspondant to cluster number:
-
+  
+Here are both scatter plots side-by-side, color is correspondant to cluster number:
 [scale2.jpg](/assets/images/ml-homework/scale2.jpg)
 
 While the covariance differences highlight distinct cluster characteristics, the means were able to suggest repition for certain clusters across the datasets.
