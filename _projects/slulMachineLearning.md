@@ -60,16 +60,19 @@ I was provided with three CSV files: x and y as input attributes and z as the ta
 
 ## Approach
 I first wanted to visualize what I was working with to see if there were any trends or patterns I could identify. I stacked x and y into a 50x2 matrix and plotted them against z with a quick matplotlib script:
-- [xy.jpg](/assets/images/ml-homework/xy.jpg)
+
+[xy.jpg](/assets/images/ml-homework/xy.jpg)
 
 Immediately what stood out to me was that this data was non-linear and followed a cubic trend. This meant I could use Polynomial Regression to follow the polynomial function. Because it's cubic, that means I would use a degree 3 to match the curve. But there’s also slight noise in the data, and a plain linear regressor would risk overfitting. So we need a way to regularize against this. This is when I discovered Ridge Regression, but first to demonstrate, here is an example of a trained model that utilizes a linear regressor (alpha=0, no regularization):
-- [XY-alpha=0.jpg](/assets/images/ml-homework/XY-alpha=0.jpg)
+
+[XY-alpha=0.jpg](/assets/images/ml-homework/XY-alpha=0.jpg)
 
 The predicted z values (red) align exactly with the original data which is a clear sign of severe overfitting. This is where ridge regression can come in to smooth out the predictions and more closely follow an underlining trend. 
 Ridge adds an L2 penalty via an alpha constant. A higher alpha means more noise control. I ran a couple more tests to find an optimal alpha constant [10, 25, 1000]:
-- [XY-alpha=10.jpg](/assets/images/ml-homework/XY-alpha=10.jpg)
-- [XY-alpha=25.jpg](/assets/images/ml-homework/XY-alpha=25.jpg)
-- [XY-alpha=1000.jpg](/assets/images/ml-homework/XY-alpha=1000.jpg)
+
+[XY-alpha=10.jpg](/assets/images/ml-homework/XY-alpha=10.jpg)
+[XY-alpha=25.jpg](/assets/images/ml-homework/XY-alpha=25.jpg)
+[XY-alpha=1000.jpg](/assets/images/ml-homework/XY-alpha=1000.jpg)
 
 I thought alpha=25 provided a great balance between an overfit and underfit risk among all other cases I tested.
 
@@ -80,8 +83,9 @@ To double-check, I compared it against alpha=0, 10, 100, etc., and 25 still prov
 Since the z values were extremely large (in the billion) in comparison to the x and y values, I decided to use StandardScaler to normalize all values, then unscale predictions to match the original scale.
 
 To prove it wasn’t a fluke, I made synthetic data mimicking the CSV files—100 samples with some extra large noise:
-- [synthetic-xy.jpg](/assets/images/ml-homework/synthetic-xy.jpg)
-- [XY-synthetic-alpha=25.jpg](/assets/images/ml-homework/XY-synthetic-alpha=25.jpg)
+
+[synthetic-xy.jpg](/assets/images/ml-homework/synthetic-xy.jpg)
+[XY-synthetic-alpha=25.jpg](/assets/images/ml-homework/XY-synthetic-alpha=25.jpg)
 
 The model nailed it, balancing fit and generalization.
 
@@ -98,15 +102,18 @@ I opted for Gaussian Mixture Models (GMM) since GMM is well-suited for ellipsoid
 Using MATLAB, I applied the Bayesian Information Criterion (BIC) to determine k, testing values from 1 to 10. Before testing, I was predicting DatasetA should count for 6 clusters, and 5 clusters for DatasetB. There were much more overlap and spread-out clusters in DatasetA so I assumed it would be more difficult for the model to predict.   
 
 For DatasetB, BIC consistently indicated k=5, which aligned with the visualization:
-- [BICpredictB.jpg](/assets/images/ml-homework/BICpredictB.jpg)
-- [GMMBclusterk=5.jpg](/assets/images/ml-homework/GMMBclusterk=5.jpg)
+
+[BICpredictB.jpg](/assets/images/ml-homework/BICpredictB.jpg)
+[GMMBclusterk=5.jpg](/assets/images/ml-homework/GMMBclusterk=5.jpg)
 
 DatasetA proved more challenging, with the BIC score fluctuating between k=6 and k=7. Visual inspection revealed potential overlap around x:-5 to 10, y:-5 to 10. The k=6 result is shown here:
-- [BICpredictAk=6.jpg](/assets/images/ml-homework/BICpredictAk=6.jpg)
+
+[BICpredictAk=6.jpg](/assets/images/ml-homework/BICpredictAk=6.jpg)
 
 While k=7 occasionally appeared, it often over-segmented the data, leading me to select k=6 as the more reliable option based on both BIC and visual consistency.
-- [BICpredictAk=7.jpg](/assets/images/ml-homework/BICpredictAk=7.jpg)
-- [GMMAclusterk=7.jpg](/assets/images/ml-homework/GMMAclusterk=7.jpg)
+
+[BICpredictAk=7.jpg](/assets/images/ml-homework/BICpredictAk=7.jpg)
+[GMMAclusterk=7.jpg](/assets/images/ml-homework/GMMAclusterk=7.jpg)
 
 ## Cluster Comparison
 We can identify the clusters that may be repeated across datasets by calculating mean of each cluster and identifying which clusters have means that are similar or close to each other. 
@@ -118,7 +125,8 @@ To identify repeated clusters, I analyzed the means and covariances across datas
 - DatasetA Cluster 1 (mean: 12.36, 5.97) and DatasetB Cluster 1 (mean: 12.96, 3.95)
 - close in the x dimension, but differing covariances altered their spread.
 - Here are both scatter plots side-by-side, color is correspondant to cluster number:
-- [scale2.jpg](/assets/images/ml-homework/scale2.jpg)
+
+[scale2.jpg](/assets/images/ml-homework/scale2.jpg)
 
 While the covariance differences highlight distinct cluster characteristics, the means were able to suggest repition for certain clusters across the datasets.
 
@@ -129,16 +137,16 @@ While the covariance differences highlight distinct cluster characteristics, the
 
 ---
 
-# Why I Chose These Methods
+# Method Summary
 
-## Supervised: PolyRidge
+## PolyRidge
 The cubic pattern in the data made Polynomial Regression a natural fit, and with only 50 samples, more complex methods like SVR or neural networks were probably impractical due to their tuning demands and computational needs. Ridge Regression addressed the noise effectively, with alpha=25 having a balance between overfitting (alpha=0) and underfitting (alpha=1000).
 
-## Unsupervised: Why GMM
-GMM was chosen over K-means for its ability to model probabilistic, non-spherical clusters, which matched the ellipsoidal shapes observed in the data. For DatasetA, k=6 prevented over-segmentation seen with k=7, while k=5 for DatasetB was consistently supported by BIC and visuals.
+## GMM
+GMM was chosen over K-means for its ability to model probabilistic and non-spherical clusters, which matched the ellipsoidal shapes observed in the data. For DatasetA, k=6 prevented over-segmentation which was seen with k=7, while k=5 for DatasetB was consistently supported by BIC and visuals.
 
 ---
 
 # Conclusion
 
-This was my first attempt at machine learning and I learned a lot. For supervised, PolyRidge with alpha=25 did great on following the cubic trend without overfitting. For unsupervised, GMM uncovered `k=6` and `k=5` clusters and taught me how means and covariances tell different stories. Figuring out the “why” behind my choices like regularization or BIC was the best part.
+This was my first attempt at machine learning and I felt like I learned a lot. For supervised, PolyRidge with alpha=25 did great on following the cubic trend without overfitting. For unsupervised, GMM uncovered k=6 and k=5 clusters and taught me how means and covariances tell different stories. Figuring out the “why” behind my choices like regularization or BIC was the best part.
