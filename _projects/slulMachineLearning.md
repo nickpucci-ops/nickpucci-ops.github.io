@@ -126,7 +126,7 @@ To identify repeated clusters, I analyzed the means and covariances across datas
 - close in the x dimension, but differing covariances altered their spread.
   
 Here are both scatter plots side-by-side, color is correspondant to cluster number:
-![scale2.jpg](/assets/images/ml-homework/scale2.jpg)
+![bothscales.jpg](/assets/images/ml-homework/bothscales.jpg)
 
 While the covariance differences highlight distinct cluster characteristics, the means were able to suggest repition for certain clusters across the datasets.
 
