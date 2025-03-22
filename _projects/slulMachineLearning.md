@@ -70,9 +70,9 @@ Immediately what stood out to me was that this data was non-linear and followed 
 The predicted z values (red) align exactly with the original data which is a clear sign of severe overfitting. This is where ridge regression can come in to smooth out the predictions and more closely follow an underlining trend. 
 Ridge adds an L2 penalty via an alpha constant. A higher alpha means more noise control. I ran a couple more tests to find an optimal alpha constant [10, 25, 1000]:
 
-[XY-alpha=10.jpg](/assets/images/ml-homework/XY-alpha=10.jpg)
-[XY-alpha=25.jpg](/assets/images/ml-homework/XY-alpha=25.jpg)
-[XY-alpha=1000.jpg](/assets/images/ml-homework/XY-alpha=1000.jpg)
+![XY-alpha=10.jpg](/assets/images/ml-homework/XY-alpha=10.jpg)
+![XY-alpha=25.jpg](/assets/images/ml-homework/XY-alpha=25.jpg)
+![XY-alpha=1000.jpg](/assets/images/ml-homework/XY-alpha=1000.jpg)
 
 I thought alpha=25 provided a great balance between an overfit and underfit risk among all other cases I tested.
 
@@ -84,8 +84,8 @@ Since the z values were extremely large (in the billion) in comparison to the x 
 
 To prove it wasn’t a fluke, I made synthetic data mimicking the CSV files—100 samples with some extra large noise:
 
-[synthetic-xy.jpg](/assets/images/ml-homework/synthetic-xy.jpg)
-[XY-synthetic-alpha=25.jpg](/assets/images/ml-homework/XY-synthetic-alpha=25.jpg)
+![synthetic-xy.jpg](/assets/images/ml-homework/synthetic-xy.jpg)
+![XY-synthetic-alpha=25.jpg](/assets/images/ml-homework/XY-synthetic-alpha=25.jpg)
 
 The model nailed it, balancing fit and generalization.
 
@@ -103,17 +103,17 @@ Using MATLAB, I applied the Bayesian Information Criterion (BIC) to determine k,
 
 For DatasetB, BIC consistently indicated k=5, which aligned with the visualization:
 
-[BICpredictB.jpg](/assets/images/ml-homework/BICpredictB.jpg)
-[GMMBclusterk=5.jpg](/assets/images/ml-homework/GMMBclusterk=5.jpg)
+![BICpredictB.jpg](/assets/images/ml-homework/BICpredictB.jpg)
+![GMMBclusterk=5.jpg](/assets/images/ml-homework/GMMBclusterk=5.jpg)
 
 DatasetA proved more challenging, with the BIC score fluctuating between k=6 and k=7. Visual inspection revealed potential overlap around x:-5 to 10, y:-5 to 10. The k=6 result is shown here:
 
-[BICpredictAk=6.jpg](/assets/images/ml-homework/BICpredictAk=6.jpg)
+![BICpredictAk=6.jpg](/assets/images/ml-homework/BICpredictAk=6.jpg)
 
 While k=7 occasionally appeared, it often over-segmented the data, leading me to select k=6 as the more reliable option based on both BIC and visual consistency.
 
-[BICpredictAk=7.jpg](/assets/images/ml-homework/BICpredictAk=7.jpg)
-[GMMAclusterk=7.jpg](/assets/images/ml-homework/GMMAclusterk=7.jpg)
+![BICpredictAk=7.jpg](/assets/images/ml-homework/BICpredictAk=7.jpg)
+![GMMAclusterk=7.jpg](/assets/images/ml-homework/GMMAclusterk=7.jpg)
 
 ## Cluster Comparison
 We can identify the clusters that may be repeated across datasets by calculating mean of each cluster and identifying which clusters have means that are similar or close to each other. 
@@ -126,7 +126,7 @@ To identify repeated clusters, I analyzed the means and covariances across datas
 - close in the x dimension, but differing covariances altered their spread.
   
 Here are both scatter plots side-by-side, color is correspondant to cluster number:
-[scale2.jpg](/assets/images/ml-homework/scale2.jpg)
+![scale2.jpg](/assets/images/ml-homework/scale2.jpg)
 
 While the covariance differences highlight distinct cluster characteristics, the means were able to suggest repition for certain clusters across the datasets.
 
