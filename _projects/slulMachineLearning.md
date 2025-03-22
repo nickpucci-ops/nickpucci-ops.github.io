@@ -130,12 +130,9 @@ It's possible for two clusters to repeat across datasets, even if they don't loo
 
 To identify repeated clusters, I analyzed the means and covariances across datasets. Two pairs emerged as notable:
 - DatasetA Cluster 3 (mean: 2.92, 4.42) and DatasetB Cluster 4 (mean: 2.04, 4.23)
-- similar means and positions, though covariances indicated different shapes.
+- DatasetA Cluster 1 (mean: 12.36, 5.97) and DatasetB Cluster 1 (mean: 12.96, 3.95).
   
-- DatasetA Cluster 1 (mean: 12.36, 5.97) and DatasetB Cluster 1 (mean: 12.96, 3.95)
-- close in the x dimension, but differing covariances altered their spread.
-  
-Here are both scatter plots side-by-side, color is correspondant to cluster number:
+We have similar means and positions indicated by these numbers, however, their covariances also hint that they are reshaped and so may not be immediately recognizable in a scatter plot. Here are both scatter plots side-by-side, color is correspondant to cluster number:
 ![bothscales.jpg](/assets/images/ml-homework/bothscales.jpg)
 
 While the covariance differences highlight distinct cluster characteristics, the means were able to suggest repition for certain clusters across the datasets.
