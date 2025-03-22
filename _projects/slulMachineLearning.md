@@ -16,9 +16,6 @@ gallery:
   - url: /assets/images/ml-homework/XY-alpha=25.jpg
     image_path: /assets/images/ml-homework/XY-alpha=25.jpg
     alt: "Supervised Learning Prediction (alpha=25)"
-  - url: /assets/images/ml-homework/BICpredictAk=6.jpg
-    image_path: /assets/images/ml-homework/BICpredictAk=6.jpg
-    alt: "DatasetA BIC"
   - url: /assets/images/ml-homework/scale1.jpg
     image_path: /assets/images/ml-homework/scale1.jpg
     alt: "DatasetA k=6 Clusters"
@@ -92,7 +89,7 @@ To prove it wasn’t a fluke, I made synthetic data mimicking the CSV files—10
 ![synthetic-xy.jpg](/assets/images/ml-homework/synthetic-xy.jpg)
 ![XY-synthetic-alpha=25.jpg](/assets/images/ml-homework/XY-synthetic-alpha=25.jpg)
 
-The model nailed it, balancing fit and generalization.
+The model nailed it, balancing fit and generalization.  
 
 ---
 
@@ -101,7 +98,9 @@ The model nailed it, balancing fit and generalization.
 ## Task
 Given two datasets, A and B, the task was to identify the number of clusters (k), their means, and covariances using an unsupervised learning method. Additionally, I needed to determine if any clusters were repeated across the datasets.
 
+- DatasetA
 ![DatasetA.jpg](/assets/images/ml-homework/DatasetA.jpg)
+- DatasetB
 ![DatasetB.jpg](/assets/images/ml-homework/DatasetB.jpg)
 
 ## Approach
@@ -115,12 +114,10 @@ For DatasetB, BIC consistently indicated k=5, which aligned with the visualizati
 ![GMMBclusterk=5.jpg](/assets/images/ml-homework/GMMBclusterk=5.jpg)
 
 DatasetA proved more challenging, with the BIC score fluctuating between k=6 and k=7: 
-Visual inspection revealed potential overlap around x:-5 to 10, y:-5 to 10. The k=6 result is shown here:
-
 ![BICpredictAk=6.jpg](/assets/images/ml-homework/BICpredictAk=6.jpg)
 ![BICpredictAk=7.jpg](/assets/images/ml-homework/BICpredictAk=7.jpg)
 
-While k=7 occasionally appeared, it often over-segmented the data, leading me to select k=6 as the more reliable option based on both BIC and visual consistency. Most times it would split very obvious singular clusters in two, however, the following comparison displays the best version of k=7 I could obtain:
+While k=7 occasionally appeared, it often over-segmented the data, leading me to select k=6 as the more reliable option based on both BIC and visual consistency. Most times it would split very obvious singular clusters in two. The following comparison displays the best version of k=7 I could obtain:
 
 ![GMMAclusterk=6.jpg](/assets/images/ml-homework/GMMAclusterk=6.jpg)
 ![GMMAclusterk=7.jpg](/assets/images/ml-homework/GMMAclusterk=7.jpg)
@@ -134,6 +131,7 @@ It's possible for two clusters to repeat across datasets, even if they don't loo
 To identify repeated clusters, I analyzed the means and covariances across datasets. Two pairs emerged as notable:
 - DatasetA Cluster 3 (mean: 2.92, 4.42) and DatasetB Cluster 4 (mean: 2.04, 4.23)
 - similar means and positions, though covariances indicated different shapes.
+  
 - DatasetA Cluster 1 (mean: 12.36, 5.97) and DatasetB Cluster 1 (mean: 12.96, 3.95)
 - close in the x dimension, but differing covariances altered their spread.
   
