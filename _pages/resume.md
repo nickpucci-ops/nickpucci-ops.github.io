@@ -6,7 +6,7 @@ permalink: /resume/
 author_profile: True
 ---
 
-<object data="/assets/documents/NickPucciSpring25Resume.pdf" type="application/pdf" height="375">
+<object data="/assets/documents/NickPucciAIMLresume2025.pdf" type="application/pdf" height="375">
   <p>Your phone doesn't have a PDF plugin.
   Instead you can <a href="/assets/documents/NickPucciAIMLresume2025.pdf">click here to
   download the PDF file.</a></p>
